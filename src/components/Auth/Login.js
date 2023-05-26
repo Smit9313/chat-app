@@ -48,7 +48,7 @@ const Login = () => {
       };
 
       const { data } = await axios.post(
-        "/api/user/login",
+        `${process.env.REACT_APP_API_ENDPOINT}/api/user/login`,
         { email, password },
         config
       );
