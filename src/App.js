@@ -1,6 +1,6 @@
 import "./App.css";
 import React from "react";
-import { Route, useHistory } from "react-router-dom";
+import { Route, Switch, useHistory } from "react-router-dom";
 import HomePage from "./pages/HomePage";
 import ChatPage from "./pages/ChatPage";
 import { ChatState } from "./Context/ChatProvider";
@@ -14,8 +14,10 @@ function App() {
   }, [user, history]);
   return (
     <div className="app">
-      <Route exact path="/" component={HomePage} />
-      <Route path="/chats" component={ChatPage} />
+      <Switch>
+        <Route exact path="/" component={HomePage} />
+        <Route path="/chats" component={ChatPage} />
+      </Switch>
     </div>
   );
 }
