@@ -131,7 +131,7 @@ import {
   
         <Modal onClose={onClose} isOpen={isOpen} isCentered>
           <ModalOverlay />
-          <ModalContent>
+          <ModalContent background="linear-gradient( 86.3deg,  rgba(0,119,182,1) 3.6%, rgba(8,24,68,1) 87.6% )" color="white">
             <ModalHeader
               fontSize="35px"
               fontFamily="Work sans"

@@ -41,7 +41,14 @@ const SideDrawer = () => {
   const history = useHistory();
   const { isOpen, onOpen, onClose } = useDisclosure();
 
-  const { user, setSelectedChat, chats, setChats,notification, setNotification } = ChatState();
+  const {
+    user,
+    setSelectedChat,
+    chats,
+    setChats,
+    notification,
+    setNotification,
+  } = ChatState();
   const toast = useToast();
 
   const logoutHandler = () => {
@@ -69,7 +76,10 @@ const SideDrawer = () => {
         },
       };
 
-      const { data } = await axios.get(`${process.env.REACT_APP_API_ENDPOINT}/api/user?search=${search}`, config);
+      const { data } = await axios.get(
+        `${process.env.REACT_APP_API_ENDPOINT}/api/user?search=${search}`,
+        config
+      );
       console.log(data);
       setLoading(false);
       setSearchResult(data);
@@ -95,7 +105,11 @@ const SideDrawer = () => {
         },
       };
 
-      const { data } = await axios.post(`${process.env.REACT_APP_API_ENDPOINT}/api/chat`, { userId }, config);
+      const { data } = await axios.post(
+        `${process.env.REACT_APP_API_ENDPOINT}/api/chat`,
+        { userId },
+        config
+      );
 
       if (!chats.find((c) => c._id === data._id)) setChats([data, ...chats]);
 
@@ -120,19 +134,27 @@ const SideDrawer = () => {
         display="flex"
         justifyContent="space-between"
         alignItems="center"
-        bg="linear-gradient(90deg, #228be6 5%, #3bc9db 95%)"
+        bg="linear-gradient( 111.4deg,  rgba(7,7,9,1) 6.5%, rgba(27,24,113,1) 93.2% )"
         w="100%"
-        p="5px 10px 5px 10px"
-        borderWidth="5px"
+        p="10px 15px 10px 15px"
+        borderColor="radial-gradient( circle 815px at 23.4% -21.8%,  rgba(9,29,85,1) 0.2%, rgba(0,0,0,1) 100.2% )"
       >
         <Tooltip
           label="Search Users to chat"
           hasArrow
           placeContent="bottom-end"
         >
-          <Button variant="ghost" background="#ACFFFF" onClick={onOpen}>
+          <Button
+            variant="ghost"
+            background="linear-gradient( 86.3deg,  rgba(0,119,182,1) 3.6%, rgba(8,24,68,1) 87.6% )"
+            _hover={{
+              background: "linear-gradient(90deg, #4b6cb7 10%, #182848 90%)",
+              //   color: "white",
+            }}
+            onClick={onOpen}
+          >
             <i className="fa-solid fa-magnifying-glass"></i>
-            <Text display={{ base: "none", md: "flex" }} px="4">
+            <Text display={{ base: "none", md: "flex" }} px="4" color="white">
               Search User
             </Text>
           </Button>
@@ -143,14 +165,17 @@ const SideDrawer = () => {
         <div>
           <Menu>
             <MenuButton p={1}>
-            <NotificationBadge
+              <NotificationBadge
                 count={notification.length}
                 effect={Effect.SCALE}
               />
               <BellIcon fontSize="2xl" m={1} />
             </MenuButton>
-            <MenuList pl={2}>
-            {!notification.length && "No New Messages"}
+            <MenuList
+              pl={2}
+              background="radial-gradient( circle 815px at 23.4% -21.8%,  rgba(9,29,85,1) 0.2%, rgba(0,0,0,1) 100.2% )"
+            >
+              {!notification.length && "No New Messages"}
               {notification.map((notif) => (
                 <MenuItem
                   key={notif._id}
@@ -169,7 +194,11 @@ const SideDrawer = () => {
           <Menu>
             <MenuButton
               as={Button}
-              background="#ACFFFF"
+              background="linear-gradient( 86.3deg,  rgba(0,119,182,1) 3.6%, rgba(8,24,68,1) 87.6% )"
+              _hover={{
+                background: "linear-gradient(90deg, #4b6cb7 10%, #182848 90%)",
+                //   color: "white",
+              }}
               rightIcon={<ChevronDownIcon />}
             >
               <Avatar
@@ -179,19 +208,29 @@ const SideDrawer = () => {
                 src={user.pic}
               />
             </MenuButton>
-            <MenuList>
+            <MenuList background="radial-gradient( circle 815px at 23.4% -21.8%,  rgba(9,29,85,1) 0.2%, rgba(0,0,0,1) 100.2% )">
               <ProfileModal user={user}>
-                <MenuItem>My Profile</MenuItem>
+                <MenuItem background="radial-gradient( circle 815px at 23.4% -21.8%,  rgba(9,29,85,1) 0.2%, rgba(0,0,0,1) 100.2% )">
+                  My Profile
+                </MenuItem>
               </ProfileModal>
               <MenuDivider />
-              <MenuItem onClick={logoutHandler}>Logout</MenuItem>
+              <MenuItem
+                onClick={logoutHandler}
+                background="radial-gradient( circle 815px at 23.4% -21.8%,  rgba(9,29,85,1) 0.2%, rgba(0,0,0,1) 100.2% )"
+              >
+                Logout
+              </MenuItem>
             </MenuList>
           </Menu>
         </div>
       </Box>
       <Drawer placement="left" onClose={onClose} isOpen={isOpen}>
         <DrawerOverlay />
-        <DrawerContent>
+        <DrawerContent
+          background="radial-gradient( circle 815px at 23.4% -21.8%,  rgba(9,29,85,1) 0.2%, rgba(0,0,0,1) 100.2% )"
+          color="white"
+        >
           <DrawerHeader borderBottomWidth="1px">Search Users</DrawerHeader>
           <DrawerBody>
             <Box display="flex" pb={2}>
@@ -201,7 +240,17 @@ const SideDrawer = () => {
                 value={search}
                 onChange={(e) => setSearch(e.target.value)}
               />
-              <Button onClick={handleSearch}>Go</Button>
+              <Button
+                onClick={handleSearch}
+                background="radial-gradient( circle 815px at 23.4% -21.8%,  rgba(9,29,85,1) 0.2%, rgba(0,0,0,1) 100.2% )"
+                _hover={{
+                  background:
+                    "linear-gradient(90deg, #4b6cb7 10%, #182848 90%)",
+                  //   color: "white",
+                }}
+              >
+                Go
+              </Button>
             </Box>
             {loading ? (
               <ChatLoading />
@@ -214,7 +263,7 @@ const SideDrawer = () => {
                 />
               ))
             )}
-            {loadingChat && <Spinner ml="auto" display="flex"/>}
+            {loadingChat && <Spinner ml="auto" display="flex" />}
           </DrawerBody>
         </DrawerContent>
       </Drawer>

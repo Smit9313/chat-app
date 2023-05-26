@@ -9,15 +9,15 @@ const UserListItem = ({ user, handleFunction }) => {
       <Box
         onClick={handleFunction}
         cursor="pointer"
-        bg="linear-gradient(90deg, #a1c4fd 10%, #c2e9fb 90%)"
+        background= 'linear-gradient(90deg, #1e3c72 16%, #2a5298 94%)'
+        color="white"
         _hover={{
-          background: "linear-gradient(90deg, #a1c4fd 1%, #4dabf7 100%, #c2e9fb 100%)",
+          background: 'linear-gradient(90deg, #4b6cb7 10%, #182848 90%)',
         //   color: "white",
         }}
         w="100%"
         display="flex"
         alignItems="center"
-        color="black"
         px={3}
         py={2}
         mb={2}

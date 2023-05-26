@@ -15,7 +15,7 @@ import animationData from "../animations/typing.json";
 import io from "socket.io-client";
 import UpdateGroupChatModal from "./miscellaneous/UpdateGroupChatModal";
 import { ChatState } from "../Context/ChatProvider";
-const ENDPOINT = "https://chat-backend-s.onrender.com"; 
+const ENDPOINT = "https://chat-backend-s.onrender.com";
 var socket, selectedChatCompare;
 
 const SingleChat = ({ fetchAgain, setFetchAgain }) => {
@@ -174,6 +174,7 @@ const SingleChat = ({ fetchAgain, setFetchAgain }) => {
           >
             <IconButton
               display={{ base: "flex", md: "none" }}
+              background="radial-gradient( circle 815px at 23.4% -21.8%,  rgba(9,29,85,1) 0.2%, rgba(0,0,0,1) 100.2% )"
               icon={<ArrowBackIcon />}
               onClick={() => setSelectedChat("")}
             />
@@ -183,6 +184,7 @@ const SingleChat = ({ fetchAgain, setFetchAgain }) => {
                   {getSender(user, selectedChat.users)}
                   <ProfileModal
                     user={getSenderFull(user, selectedChat.users)}
+                    background="radial-gradient( circle 815px at 23.4% -21.8%,  rgba(9,29,85,1) 0.2%, rgba(0,0,0,1) 100.2% )"
                   />
                 </>
               ) : (
@@ -200,7 +202,8 @@ const SingleChat = ({ fetchAgain, setFetchAgain }) => {
             display="flex"
             flexDir="column"
             justifyContent="flex-end"
-            p={3}
+            // p={3}
+            color="white"
             bg="#E8E8E8"
             w="100%"
             h="100%"
@@ -216,7 +219,7 @@ const SingleChat = ({ fetchAgain, setFetchAgain }) => {
                 margin="auto"
               />
             ) : (
-              <div className="messages">
+              <div className="messages set-img">
                 <ScrollableChat messages={messages} />
                 {istyping ? (
                   <div>
@@ -238,7 +241,8 @@ const SingleChat = ({ fetchAgain, setFetchAgain }) => {
               onKeyDown={sendMessage}
               id="first-name"
               isRequired
-              mt={3}
+              // mt={3}
+              background= "linear-gradient( 109.6deg,  rgba(15,2,2,1) 11.2%, rgba(36,163,190,1) 91.1% )"
             >
               <Input
                 variant="filled"
@@ -246,6 +250,11 @@ const SingleChat = ({ fetchAgain, setFetchAgain }) => {
                 placeholder="Enter a message.."
                 value={newMessage}
                 onChange={typingHandler}
+                background= "linear-gradient( 109.6deg,  rgba(15,2,2,1) 11.2%, rgba(36,163,190,1) 91.1% )"
+                _hover={{
+                  background :"linear-gradient( 109.6deg,  rgba(15,2,2,1) 11.2%, rgba(36,163,190,1) 91.1% )"
+                //   color: "white",
+                }}
               />
             </FormControl>
           </Box>
@@ -256,6 +265,7 @@ const SingleChat = ({ fetchAgain, setFetchAgain }) => {
           display="flex"
           alignItems="center"
           justifyContent="center"
+          
           h="100%"
         >
           <Text fontSize="3xl" pb={3} fontFamily="Work sans">

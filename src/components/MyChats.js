@@ -56,6 +56,7 @@ const MyChats = ({ fetchAgain }) => {
       w={{ base: "100%", md: "31%" }}
       borderRadius="lg"
       borderWidth="1px"
+      background="linear-gradient( 111.4deg,  rgba(7,7,9,1) 6.5%, rgba(27,24,113,1) 93.2% )"
     >
       <Box
         pb={3}
@@ -71,6 +72,11 @@ const MyChats = ({ fetchAgain }) => {
         <GroupChatModal>
           <Button
             display="flex"
+            background="linear-gradient( 86.3deg,  rgba(0,119,182,1) 3.6%, rgba(8,24,68,1) 87.6% )"
+            _hover={{
+              background: "linear-gradient(90deg, #4b6cb7 10%, #182848 90%)",
+              //   color: "white",
+            }}
             fontSize={{ base: "17px", md: "10px", lg: "17px" }}
             rightIcon={<AddIcon />}
           >
@@ -83,7 +89,7 @@ const MyChats = ({ fetchAgain }) => {
         display="flex"
         flexDir="column"
         p={3}
-        bg="#F8F8F8"
+        bg="linear-gradient( 111.4deg,  rgba(7,7,9,1) 6.5%, rgba(27,24,113,1) 93.2% )"
         w="100%"
         h="100%"
         borderRadius="lg"
@@ -93,13 +99,18 @@ const MyChats = ({ fetchAgain }) => {
           <Stack overflowY="scroll">
             {chats.map((chat) => (
               <Box
-              display="flex"
+                display="flex"
                 onClick={() => setSelectedChat(chat)}
                 cursor="pointer"
-                bg={selectedChat === chat ? "#38B2AC" : "#E8E8E8"}
-                color={selectedChat === chat ? "white" : "black"}
+                bg={
+                  selectedChat === chat
+                    ? "black"
+                    : "radial-gradient( circle 815px at 23.4% -21.8%,  rgba(9,29,85,1) 0.2%, rgba(0,0,0,1) 100.2% )"
+                }
+                color={selectedChat === chat ? "white" : "white"}
                 px={3}
                 py={2}
+                borderWidth="1px"
                 borderRadius="lg"
                 key={chat._id}
               >
@@ -111,7 +122,7 @@ const MyChats = ({ fetchAgain }) => {
                   name={user.name}
                   src={chat.users[0].pic}
                 />
-                <Box >
+                <Box>
                   <Text>
                     {!chat.isGroupChat
                       ? getSender(loggedUser, chat.users)

@@ -3,7 +3,12 @@
 .app {
   min-height: 100vh;
   display: flex;
-  background-image: linear-gradient(to top, #9890e3 0%, #b1f4cf 100%);
+  background-image: radial-gradient(
+    circle 815px at 23.4% -21.8%,
+    rgba(9, 29, 85, 1) 0.2%,
+    rgba(0, 0, 0, 1) 100.2%
+  );
+  color: aliceblue;
 }
 ::-webkit-scrollbar {
   width: 0px;
@@ -16,4 +21,12 @@
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
   background: #555;
+}
+
+.set-img{
+  height: 70vh;
+  background-image: url(https://media.discordapp.net/attachments/1038329663187062804/1109789539062521937/1.jpg?width=700&height=478);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
 }
