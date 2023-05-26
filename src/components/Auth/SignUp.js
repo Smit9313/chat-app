@@ -105,7 +105,7 @@ const SignUp = () => {
         },
       };
       const { data } = await axios.post(
-        "/api/user",
+        `${process.env.REACT_APP_API_ENDPOINT}/api/user`,
         { name, email, password, pic },
         config
       );
