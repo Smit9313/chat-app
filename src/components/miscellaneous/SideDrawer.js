@@ -132,7 +132,7 @@ const SideDrawer = () => {
         >
           <Button variant="ghost" background="#ACFFFF" onClick={onOpen}>
             <i className="fa-solid fa-magnifying-glass"></i>
-            <Text d={{ base: "none", md: "flex" }} px="4">
+            <Text display={{ base: "none", md: "flex" }} px="4">
               Search User
             </Text>
           </Button>

@@ -21,7 +21,7 @@ const ChatPage = () => {
       {user && <SideDrawer />}
       <Box
         w="100%"
-        h="91.5vh"
+        h="80vh"
         p="10px"
         style={{ display: "flex", justifyContent: "space-between" }}
       >
